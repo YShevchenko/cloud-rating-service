@@ -4,6 +4,9 @@ import com.oydipi.ratingservice.model.Rating;
 import com.oydipi.ratingservice.repository.RatingsRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.integration.leader.Context;
+import org.springframework.integration.support.leader.LockRegistryLeaderInitiator;
+import org.springframework.integration.zookeeper.leader.LeaderInitiator;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +40,9 @@ public class RatingController {
     public Rating addRating(@RequestBody Rating rating) {
         log.info("rating added {}", rating);
         return ratingsRepository.save(rating);
+
+
+
     }
+
 }

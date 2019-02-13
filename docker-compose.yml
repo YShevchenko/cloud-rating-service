@@ -1,0 +1,12 @@
+rating:
+  image: openjdk:alpine
+  ports:
+    - "7022:7022"
+  volumes:
+    - ./target/rating-service-0.0.1-SNAPSHOT.jar:/usr/src/rating-service.jar
+  command: java -jar /usr/src/rating-service.jar
+
+zookeeper:
+  image: zookeeper:3.4.9
+  ports:
+  - "2181:2181"
